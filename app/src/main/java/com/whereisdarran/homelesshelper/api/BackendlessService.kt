@@ -24,23 +24,18 @@ import okhttp3.logging.HttpLoggingInterceptor.Level
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
-import retrofit2.http.Query
 
 /**
  * Used to connect to the Unsplash API to fetch photos
  */
 interface BackendlessService {
 
-    @GET("search/photos")
-    suspend fun searchPhotos(
-        @Query("query") query: String,
-        @Query("page") page: Int,
-        @Query("per_page") perPage: Int,
-        @Query("client_id") clientId: String = BuildConfig.BACKENDLESS_ACCESS_KEY
-    ): List<Resource>
+    @GET("resource")
+    suspend fun getResources(): List<Resource>
 
     companion object {
-        private const val BASE_URL = "https://api.unsplash.com/"
+        private const val REST_API_KEY = BuildConfig.BACKENDLESS_ACCESS_KEY
+        private const val BASE_URL = "https://api.backendless.com/E1AF80E4-794A-8993-FFAB-1D19AA6C4C00/$REST_API_KEY/data/"
 
         fun create(): BackendlessService {
             val logger = HttpLoggingInterceptor().apply { level = Level.BASIC }

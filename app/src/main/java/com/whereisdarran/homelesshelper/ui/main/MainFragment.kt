@@ -17,6 +17,7 @@ class MainFragment : Fragment() {
     }
 
     private val viewModel by viewModels<MainViewModel>()
+    private val resourceAdapter: ResourceAdapter = ResourceAdapter()
 
     private lateinit var binding: MainFragmentBinding
 
@@ -24,13 +25,14 @@ class MainFragment : Fragment() {
                               savedInstanceState: Bundle?): View {
 
         binding = MainFragmentBinding.inflate(inflater, container, false)
+        binding.message.adapter = resourceAdapter
         return binding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel.resource.observe(viewLifecycleOwner) {
-            binding.message.text = it
+        viewModel.resources.observe(viewLifecycleOwner) {
+            resourceAdapter.submitList(it)
         }
     }
 }
