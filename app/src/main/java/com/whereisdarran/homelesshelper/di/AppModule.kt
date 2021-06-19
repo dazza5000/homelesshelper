@@ -16,11 +16,9 @@
 
 package com.whereisdarran.homelesshelper.di
 
-
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-
 
 /**
  * Module to tell Hilt how to provide instances of types that cannot be constructor-injected.
@@ -30,6 +28,4 @@ import dagger.hilt.components.SingletonComponent
  */
 @Module
 @InstallIn(SingletonComponent::class)
-object AppModule {
-
-}
+object AppModule

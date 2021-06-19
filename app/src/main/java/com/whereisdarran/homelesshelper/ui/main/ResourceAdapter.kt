@@ -59,7 +59,7 @@ class ResourceAdapter : ListAdapter<Resource, RecyclerView.ViewHolder>(ResourceD
         }
 
         fun bind(item: Resource) {
-            binding.resourceId.text  = item.objectId
+            binding.resourceId.text = item.objectId
             binding.resourceName.text = item.name
         }
 

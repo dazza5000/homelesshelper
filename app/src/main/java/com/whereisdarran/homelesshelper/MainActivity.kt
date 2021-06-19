@@ -1,8 +1,8 @@
 package com.whereisdarran.homelesshelper
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.whereisdarran.homelesshelper.ui.main.MainFragment
+import androidx.appcompat.app.AppCompatActivity
+import com.whereisdarran.homelesshelper.ui.main.ResourceFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -13,8 +13,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.main_activity)
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                    .replace(R.id.container, MainFragment.newInstance())
-                    .commitNow()
+                .replace(R.id.container, ResourceFragment.newInstance())
+                .commitNow()
         }
     }
 }

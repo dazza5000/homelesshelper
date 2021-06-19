@@ -3,6 +3,7 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
+    id "org.jlleitschuh.gradle.ktlint"
 }
 
 android {
@@ -75,5 +76,5 @@ dependencies {
 }
 
 def getBackendlessKey() {
-    return project.findProperty("unsplash_access_key")
+    return project.findProperty("backendless_access_key")
 }

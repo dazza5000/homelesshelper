@@ -29,7 +29,7 @@ class NetworkModule {
 
     @Singleton
     @Provides
-    fun provideUnsplashService(): BackendlessService {
+    fun provideBackendlessService(): BackendlessService {
         return BackendlessService.create()
     }
 }
